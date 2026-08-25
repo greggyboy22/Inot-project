@@ -1,32 +1,53 @@
+/* Reset default margins and paddings */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Moving animated gradient background */
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    color: #333;
-    transition: background 0.5s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* Multi-color gradient with extra size to allow movement */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+
+    /* Continuous movement animation */
+    animation: gradientBG 15s ease infinite;
+    color: #ffffff;
 }
 
-header {
-    background: #0077cc;
-    color: white;
-    padding: 20px;
+/* Smooth keyframes animation for sliding gradient positions */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Layout and styling enhancements */
+header, footer {
+    padding: 1.5rem;
     text-align: center;
-}
-
-nav {
-    margin-top: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
 }
 
 nav a {
-    color: white;
+    color: #ffffff;
+    margin: 0 10px;
     text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 nav a:hover {
@@ -35,37 +56,32 @@ nav a:hover {
 
 .hero {
     text-align: center;
-    padding: 80px 20px;
+    padding: 4rem 1rem;
 }
 
 .hero h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
 }
 
-button {
-    background: #0c0002;
-    color: rgb(248, 248, 248);
+button#colorBtn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
     border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 8px;
+    border-radius: 25px;
+    background-color: #ffffff;
+    color: #333333;
     cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-button:hover {
-    background: #005fa3;
-}
-
-footer {
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 80px;
+button#colorBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
